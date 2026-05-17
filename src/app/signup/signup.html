@@ -1,0 +1,173 @@
+<div class="auth-container">
+  <div class="auth-card signup-card">
+    <h2>Employee Signup</h2>
+    <p class="subtitle">Create HMS employee account</p>
+
+    @if (errorMessage) {
+      <div class="error">
+        {{ errorMessage }}
+      </div>
+    }
+
+    @if (successMessage) {
+      <div class="success">
+        {{ successMessage }}
+      </div>
+    }
+
+    <form (ngSubmit)="onSignup()">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Name *</label>
+          <input
+            type="text"
+            name="name"
+            [(ngModel)]="signupData.name"
+            placeholder="Enter name"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Email *</label>
+          <input
+            type="email"
+            name="email"
+            [(ngModel)]="signupData.email"
+            placeholder="Enter email"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Phone *</label>
+          <input
+            type="text"
+            name="phone"
+            [(ngModel)]="signupData.phone"
+            placeholder="Enter phone"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Password *</label>
+          <input
+            type="password"
+            name="password"
+            [(ngModel)]="signupData.password"
+            placeholder="Enter password"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Department</label>
+          <input
+            type="text"
+            name="department"
+            [(ngModel)]="signupData.department"
+            placeholder="Example: Cardiology"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Designation</label>
+          <input
+            type="text"
+            name="designation"
+            [(ngModel)]="signupData.designation"
+            placeholder="Example: Doctor"
+          />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Joining Date</label>
+          <input type="date" name="joiningDate" [(ngModel)]="signupData.joiningDate" />
+        </div>
+
+        <div class="form-group">
+          <label>Role *</label>
+          <select name="roles" [(ngModel)]="signupData.roles" required>
+            <option value="">Select Role</option>
+            <option value="OWNER">OWNER</option>
+            <option value="ADMIN">ADMIN</option>
+            <option value="DOCTOR">DOCTOR</option>
+            <option value="RECEPTIONIST">RECEPTIONIST</option>
+            <option value="CASHIER">CASHIER</option>
+            <option value="NURSE">NURSE</option>
+            <option value="LAB_TECH">LAB_TECH</option>
+            <option value="PHARMACIST">PHARMACIST</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Medical Registration No</label>
+          <input
+            type="text"
+            name="medicalRegistrationNo"
+            [(ngModel)]="signupData.medicalRegistrationNo"
+            placeholder="Doctor registration no"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Specialization</label>
+          <input
+            type="text"
+            name="specialization"
+            [(ngModel)]="signupData.specialization"
+            placeholder="Example: Neurology"
+          />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Qualification</label>
+          <input
+            type="text"
+            name="qualification"
+            [(ngModel)]="signupData.qualification"
+            placeholder="Example: MBBS, MD"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Consultation Fee</label>
+          <input
+            type="number"
+            name="consultationFee"
+            [(ngModel)]="signupData.consultationFee"
+            placeholder="Example: 500"
+          />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Availability Slots</label>
+        <input
+          type="text"
+          name="availabilitySlots"
+          [(ngModel)]="signupData.availabilitySlots"
+          placeholder="Example: 10AM-12PM, 4PM-6PM"
+        />
+      </div>
+
+      <button type="submit">Signup</button>
+    </form>
+
+    <p class="link-text">
+      Already have an account?
+      <a routerLink="/login">Login</a>
+    </p>
+  </div>
+</div>
